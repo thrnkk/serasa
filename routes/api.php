@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\EnsureTokenIsValid;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::post('client/create', 'App\Http\Controllers\ClientController@create');
+Route::post('auth', 'App\Http\Controllers\AuthenticationController@authenticate');
+
+Route::middleware([EnsureTokenIsValid::class])->group(function () {
+
+	Route::get('offers', 'App\Http\Controllers\OfferController@index');
+	Route::get('offers/{id}', 'App\Http\Controllers\OfferController@show');
+
+	Route::post('offers/{id}/accept', 'App\Http\Controllers\OfferController@accept');
+
 });

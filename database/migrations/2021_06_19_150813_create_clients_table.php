@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCreditTypeTable extends Migration
+class CreateClientsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateCreditTypeTable extends Migration
      */
     public function up()
     {
-        Schema::create('credit_type', function (Blueprint $table) {
+        Schema::create('clients', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('type');
-            $table->text('description');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('cpf')->unique();
+            $table->string('password');
+            $table->string('api_token', 80)->unique()->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateCreditTypeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('credit_type');
+        Schema::dropIfExists('clients');
     }
 }

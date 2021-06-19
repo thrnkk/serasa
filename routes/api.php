@@ -25,6 +25,6 @@ Route::middleware([EnsureTokenIsValid::class])->group(function () {
 
 	Route::post('offers/{id}/accept', 'App\Http\Controllers\OfferController@accept');
 
-	Route::get('clients/offers', 'App\Http\Controllers\ClientController@offers');
+	Route::get('client/offers', 'App\Http\Controllers\ClientController@offers');
 
 });

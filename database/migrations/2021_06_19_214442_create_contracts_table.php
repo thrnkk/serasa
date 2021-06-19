@@ -17,7 +17,6 @@ class CreateContractsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('offer_id');
             $table->unsignedInteger('client_id');
-            $table->datetime('date');
             $table->timestamps();
             $table->foreign('offer_id')->references('id')->on('credit_offers');
             $table->foreign('client_id')->references('id')->on('clients');

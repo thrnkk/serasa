@@ -56,7 +56,8 @@ class OfferController extends Controller
 
         try {
 
-            Contract::create($contract);
+            $contractId = Contract::create($contract)->id;
+            $contract = $this->contracts->with('client')->with('offer')->find($contractId);
 
             return response()->json($contract, 201);
 

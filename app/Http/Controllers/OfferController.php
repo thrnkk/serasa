@@ -47,6 +47,10 @@ class OfferController extends Controller
 
         $offer = $this->offers->find($id);
 
+        if(!$offer) {
+            return response()->json(['message' => 'Oferta não encontrada.', 'date' => now()], 404);
+        }
+
         $token = $request->header("API-Token");
         $client = Client::where("api_token", $token)->first();
 

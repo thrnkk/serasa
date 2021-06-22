@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Offer;
 use App\Models\Contract;
 use App\Models\Client;
+use Illuminate\Database\QueryException;
 
 class OfferController extends Controller
 {

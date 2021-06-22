@@ -38,7 +38,7 @@ class ClientController extends Controller
         $client = Client::where("api_token", $token)->with('offers.creditType')->with('offers.partner')->first();
 
         if(!$client) {
-            return response()->json(['message' => 'Cliente não encontrado.', 'date' => now()], 404);
+            return response()->json(['message' => 'Cliente não encontrado.', 'date' => now()], 401);
         }
 
         return response()->json($client, 200);

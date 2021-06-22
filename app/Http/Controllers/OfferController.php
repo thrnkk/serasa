@@ -55,6 +55,10 @@ class OfferController extends Controller
         $token = $request->header("API-Token");
         $client = Client::where("api_token", $token)->first();
 
+        if(!$client) {
+            return response()->json(['message' => 'Cliente não encontrado.', 'date' => now()], 401);
+        }
+
         $contract['offer_id'] = $offer->id;
         $contract['client_id'] = $client->id;
         $contract['date'] = now();

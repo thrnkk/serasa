@@ -10,7 +10,7 @@ Para a criação do projeto, foram utilizados os seguintes requisitos:
 
 - Composer 2.0.7
 - Laravel Framework 8.47.0
-- MySQL
+- SQLite
   
 ### :rocket: Tecnologias
 
@@ -23,21 +23,18 @@ Para a criação do projeto, foram utilizados os seguintes requisitos:
 ### :mega: Utilização 
 
 1. Entrar na pasta raiz do projeto.
-2. Edite no arquivo `.env` os campos "DB_DATABASE", "DB_USERNAME" e "DB_PASSWORD" para se adequar à sua database.
-3. Execute o comando `composer install` (certifique-se de que não ocorreu nenhum erro referente à antivirus ou ao Windows Search Indexer, se ocorrer, repetir o comando).
-4. Execute o comando `php artisan migrate` para criar as tabelas na database.
-5. Execute o comando `php artisan db:seed` para popular automaticamente algumas tabelas na database.
-6. Execute o comando `php artisan serve` para iniciar o seu projeto.
+2. Execute o comando `composer install` (certifique-se de que não ocorreu nenhum erro referente à antivirus ou ao Windows Search Indexer, se ocorrer, repetir o comando).
+3. Execute o comando `php artisan migrate` para criar as tabelas na database.
+4. Execute o comando `php artisan db:seed` para popular automaticamente algumas tabelas na database.
+5. Execute o comando `php artisan serve` para iniciar o seu projeto.
 
 Obs.: Para visualizar todas as rotas disponíveis, utilize `php artisan route:list`.
 
-### :mega: Testes 
+### :vertical_traffic_light: Testes 
 
 Para não afetar os dados do banco de "produção", foi optado por realizar os testes em um banco diferente.
 
-1. Para realizar os testes é necessário alterar no arquivo `.env` o campo "DB_TEST_DATABASE" para se adequar à sua database. <br>
-2. Também alterar no arquivo `phpunit.xml` o valor "<server name="DB_DATABASE" value=`serasa_test`/>" para se adequar à sua database. <br>
-3. Rodar o comando `php artisan test`.
+1. Rodar o comando `php artisan test --testsuite=Feature`.
       
 ### :newspaper: Documentação
 
@@ -81,7 +78,7 @@ Utilizar o `api_token` no header das demais requisições:
 'API-Token': 'd0mEfeVrFZxEBz0FjFJyNqbIo4fLN2BVTsc07tMhZ8DEcK7Eux7spqS7TKPh'
 ```
 
-#### Utilização dos Serviços
+### :triangular_flag_on_post: Utilização dos Serviços
 
 <details hidden>
   <summary>:lock: Sistema</summary>

@@ -23,9 +23,9 @@ class OfferController extends Controller
 
         $offers = $this->offers->where('value', $value)->where('installments', $installments)->with('creditType')->with('partner')->orderBy("id")->get();
 
-        if(!$offers) {
+        if($offers->isEmpty()) {
 
-        	return response()->json(['message' => 'Nenhum registro não encontrado.', 'date' => now()], 404);
+        	return response()->json(['message' => 'Nenhum registro não encontrado com esses parâmetros.', 'date' => now()], 404);
 
         }
 

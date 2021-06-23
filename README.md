@@ -31,9 +31,17 @@ Para a criação do projeto, foram utilizados os seguintes requisitos:
 
 Obs.: Para visualizar todas as rotas disponíveis, utilize `php artisan route:list`.
 
+### :mega: Testes 
+
+Para não afetar os dados do banco de "produção", foi optado por realizar os testes em um banco diferente.
+
+1. Para realizar os testes é necessário alterar no arquivo `.env` o campo "DB_TEST_DATABASE" para se adequar à sua database. <br>
+2. Também alterar no arquivo `phpunit.xml` o valor "<server name="DB_DATABASE" value=`serasa_test`/>" para se adequar à sua database. <br>
+3. Rodar o comando `php artisan test`.
+      
 ### :newspaper: Documentação
 
-#### API
+Padrão: http://127.0.0.1:8000/
 
 ```
 +--------+----------+------------------------+------+------------------------------------------------------------+--------------------------------------------+
